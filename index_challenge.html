@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>challenge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <style>
+        #red-slider .slider-block,
+        #green-slider .slider-block,
+        #blue-slider .slider-block {           
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /*去除原本默認樣式*/
+            width: 100%;
+            height: 0.5rem;
+             border-radius: 10px;
+            /*設置滑塊下方樣式*/
+            
+        }
+
+        #red-slider .slider-block {
+            background: rgb(255, 132, 132);
+        }
+        #green-slider .slider-block {
+            background: rgb(71, 145, 99);
+        }
+
+        #blue-slider .slider-block{
+            background: rgb(132, 144, 255);
+        }
+
+        /*::-webkit-slider-thumb是代表指定滑塊部分*/
+        #red-slider input[type="range"]::-webkit-slider-thumb,
+        #green-slider input[type="range"]::-webkit-slider-thumb,
+        #blue-slider input[type="range"]::-webkit-slider-thumb{
+            /*去除原本默認樣式*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /*設定滑塊陰影*/
+            width: 50px;
+            height: 20px;
+            box-shadow:  0px 0px 5px rgb(126, 126, 126);
+            /*設定滑塊樣式*/
+            width: 1.2rem;
+            height: 1.2rem;
+            border-radius: 50%;
+            background-size: cover;
+            
+        }
+
+        #red-slider input[type="range"]::-webkit-slider-thumb{
+            background: radial-gradient(circle, rgba(237, 141, 141, 1) 0%, rgba(235, 96, 96, 1) 30%, rgba(195, 41, 41, 1) 74%, rgba(238, 48, 48, 1) 100%);
+        }
+        
+
+        #green-slider input[type="range"]::-webkit-slider-thumb {
+          background: radial-gradient(circle, rgb(126, 236, 126) 0%, rgb(78, 201, 104) 30%, rgb(37, 179, 60) 74%, rgb(64, 238, 48) 100%);
+
+        }
+
+
+        #blue-slider input[type="range"]::-webkit-slider-thumb { 
+            background: radial-gradient(circle, rgb(141, 179, 237) 0%, rgb(96, 122, 235) 30%, rgb(41, 77, 195) 74%, rgb(48, 83, 238) 100%);
+
+        }
+
+        .red-block,.green-block,.blue-block {
+            width: 20px;
+            height: 20px;    
+            border-radius: 20%;
+            line-height: 20px;
+            text-align: center;
+            box-shadow: 2px 2px 3px;
+        }
+
+        .red-block{
+            background-color: rgb(250, 114, 114);
+        }
+
+
+        .green-block {      
+            background-color: rgb(51, 196, 111);
+        }
+
+        .blue-block {
+            background-color: rgb(6, 131, 233);
+        }
+
+        .value-block {
+            width: 45px;
+            height: 29px;
+            border: 1px solid rgb(185, 182, 182,0.3);
+            background-color: rgb(244, 245, 207,0.5);
+            line-height: 24px;
+            text-align: center;
+            border-radius: 10px;
+            f
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 300px;
+            padding-top: 30px; 
+            padding-left: 30px;
+            border: 10px solid #eee ;
+            border-radius: 50%;
+        }
+
+        .hexnumber {
+            width: 200px;
+            height: 70px;
+            line-height: 70px;
+            font-weight: 800;
+            font-size: 2em;
+            text-align: center;
+            background-color: lavender;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id=sliders>
+    <div id ="bg-color" class="container col-12">
+            <div id="red-slider" class="d-flex align-items-center mb-3 ">
+                <div class=" mr-2">
+                    <div class="red-block">R</div>
+                </div>
+                <div class=" mr-2">
+                    <input id="red" class="slider-block" type="range" min="0" max="255">
+                </div>
+                <div id='value-red-block' class=" value-block mr-2">
+                </div>
+            </div>
+
+            <div id="green-slider" class="d-flex align-items-center mb-3">
+                <div class=" mr-2">
+                    <div class="green-block">G</div>
+                </div>
+                <div class=" mr-2">
+                    <input id="green" class="slider-block" type="range" min="0" max="255">
+                </div>
+                <div id ="value-green-block" class="value-block mr-2">
+                </div>
+            </div>
+
+            <div id="blue-slider" class="d-flex align-items-center mb-3">
+                <div class=" mr-2">
+                    <div class="blue-block">B</div>
+                </div>
+                <div class=" mr-2">
+                    <input id="blue" class="slider-block" type="range" min="0" max="255">
+                </div>
+                <div id ="value-blue-block" class="value-block mr-2">
+                </div>
+            </div>
+
+            <div  class="mr-4">
+                <div id="hex-result">
+                    <div class="hexnumber">Get HEX</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="indexMVC_challenge.js"></script>
+</body>
+
+</html>
